@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zaloguj się - MiOS ZSTI</title>
+        <script src="/static/js/sidebar.js"></script>
+        <link rel="stylesheet" href="/static/css/main.css">
+        <meta charset="utf-8" lang="pl">
+    </head>
+    <body onload="main()">
+        <div id="side-menu" class="side-menu-open">
+            <main>
+                <div id="side-menu-profilebrief">
+                    <div class="portrait">
+                        <img src="/static/img/dog.jpg">
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Profil</a></li>
+                        <li><a href="#">Harmonogram</a></li>
+                        <li><a href="#">Wyloguj</a></li>
+                    </ul>
+                </nav>
+            </main>
+            <div id="side-menu-toggler" onclick="toggleSideMenu()"></div>
+        </div>
+        <div id="log">
+            <form action="/login" method="get">
+                <p>
+                    <label>
+                        Login:
+                        <input type="email" name="login" placeholder="E-mail">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Password:
+                        <input type="password" name="password" placeholder="Hasło">
+                    </label>
+                </p>
+                <p>
+                    <button type="submit">Log in</button>
+                </p>
+            </form>
+        </div>
+    </body>
+</html>
