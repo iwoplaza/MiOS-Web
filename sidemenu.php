@@ -1,8 +1,9 @@
-<div id="side-menu" class="side-menu-open">
+<div id="side-menu" class="side-menu-closed">
     <main>
         <div id="side-menu-profilebrief">
             <div class="portrait">
-                <img src="/static/img/dog.jpg">
+                <?php echo "<img src='".$root_path."img/dog.jpg'" ?>
+                <img src="img/dog.jpg">
             </div>
         </div>
         <nav>

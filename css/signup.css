@@ -1,0 +1,48 @@
+#signup {
+	box-sizing: border-box;
+	position: absolute;
+	left: 50vw;
+	top: 50vh;
+	background-color: #fff;
+	width: 320px;
+	height: 360px;
+	margin-left: -160px;
+	margin-top: -190px;
+	padding: 30px 30px;
+}
+
+#signup input {
+	width: 244px;
+	margin: 5px 0px;
+}
+
+#signup input[name="first"] {
+	display: inline-block;
+	width: 105px;
+	margin-right: 10px;
+}
+
+#signup input[name="last"] {
+	display: inline-block;
+	width: 105px;
+}
+
+#signup button {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	position: absolute;
+	height: 40px;
+	margin: 5px 0px;
+	left: 30px;
+	bottom: 20px;
+	background-color: #444;
+	border: 0px none;
+	color: #fff;
+	width: 260px;
+	letter-spacing: 1px;
+	transition: 0.1s all ease-out;
+}
+
+#signup button:hover {
+	background-color: #358;
+	
+}
