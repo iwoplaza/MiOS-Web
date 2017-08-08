@@ -26,9 +26,6 @@ and exit the script.
 	exit();
 }*/
 
-header("Location: ../signup?error=".$input_uid."&".$input_pwd."&".$input_first);
-exit();
-
 /*
 Checking if the first and last name are valid.
 */
@@ -56,8 +53,8 @@ if(mysqli_num_rows($result) > 0) {
 //Hashing the password.
 $hashedPwd = password_hash($input_pwd, PASSWORD_DEFAULT);
 //Inserting the user into the database.
-$sql = "INSERT INTO users (user_uid, user_pwd, user_first, user_last, user_email) VALUES ("
-	.$input_uid.", ".$hashed_pwd.", ".$input_first.", ".$input_last.", ".$input_email.")";
+$sql = "INSERT INTO users (user_uid, user_pwd, user_first, user_last, user_email) VALUES ('"
+	.$input_uid."', '".$hashed_pwd."', '".$input_first."', '".$input_last."', '".$input_email."')";
 mysqli_query($dbConn, $sql);
-header("Location: ../signup?success");
+header("Location: ../signup?success&".$sql);
 exit();
