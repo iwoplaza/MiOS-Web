@@ -1,3 +1,5 @@
+<!--   
+
 <div id="side-menu" class="side-menu-closed">
     <main>
         <div id="side-menu-profilebrief">
@@ -16,3 +18,6 @@
     </main>
     <div id="side-menu-toggler" onclick="toggleSideMenu()"></div>
 </div>
+
+
+-->
