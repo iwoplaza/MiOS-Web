@@ -213,3 +213,9 @@ header button:active {
     color: #fff;
     transition: 0.05s all ease-out;
 }
+
+.error-text {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: red;
+    font-size: 0.8em;
+}

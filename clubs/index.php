@@ -11,6 +11,7 @@
     <head>
         <title>Kółka zainteresowań - MiOS ZSTI</title>
         <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/clubs.css">
         <meta charset="utf-8" lang="pl">
     </head>
     <body>
@@ -26,6 +27,15 @@
         
         <section id="main-container">
             <h1>Kółka zainteresowań</h1>
+            <?php
+                include_once $root_path.'includes/dbh.inc.php';
+                $sql = "SELECT * FROM clubs";
+                $result = mysqli_query($dbConn, $sql);
+
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<div class='club-entry'><h2>".$row['club_name']."</h2><p>".$row['club_desc']."</p></div>";
+                }
+            ?>
         </section>
         
         <?php

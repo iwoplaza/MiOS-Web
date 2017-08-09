@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Zarejestruj się - MiOS ZSTI</title>
+        <title>Zaloguj się - MiOS ZSTI</title>
         <link rel="stylesheet" href="../css/main.css">
         <link rel="stylesheet" href="../css/login.css">
         <meta charset="utf-8" lang="pl">
@@ -27,6 +27,17 @@
 			<form action="../includes/login.inc.php" method="post">
 				<input id="signin-username" name="username" placeholder="Nazwa użytkownika">
 				<input id="signin-password" name="password" type="password" placeholder="Hasło">
+				<?php 
+                    if(isset($_GET['error'])) {
+                        $error = $_GET['error'];
+                        echo '<p class="error-text">';
+                        if($error == 'invalid')
+                            echo 'Użytkownik o podanych danych nie istnieje.';
+                        else if($error == 'empty')
+                            echo 'Jedno z pól jest puste.';
+                        echo '</p>';
+                    }
+                ?>
 				<button type="submit" name="submit">Zaloguj się</button>
 				<?php
                     echo "<input hidden name='root' value='".$root_path."'>";
