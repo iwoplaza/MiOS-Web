@@ -77,13 +77,20 @@
     display: block;
     width: 100%;
     height: 40px;
-    background-color: #444;
+    background-color: #fff;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
 }
 
 #club-toolbar a {
+	display: inline-block;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    color: #fff;
+    color: #444;
     text-decoration: none;
+	height: 18px;
+	border: 1px solid #aaa;
+	padding: 7px;
+	margin-top: 3px;
 }
 
 #create-club input[name="club_name"]{

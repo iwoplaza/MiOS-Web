@@ -52,13 +52,14 @@
                         foreach($CLUBTYPE_NAMES as $key => $value) {
                             echo '<option value ="'.$key.'" ';
                             if($key == $club_type)
-                                echo 'default';
+                                echo 'selected';
                             echo '>'.$value.'</option>';
                         }
                     ?>
                 </select>
                 <?php echo '<textarea name="club_desc" placeholder="Opis" rows="5" cols="20" required>'.$club_desc.'</textarea>' ?>
                 <button type="submit" name="submit">Zatwierdź zmiany</button>
+                <?php echo '<input hidden name="club_id" value="'.$club_id.'">' ?>
             </form>
             <form method="post" action="../includes/delete-club.inc.php">
                 <button type="submit" name="submit">Usuń kółko</button>

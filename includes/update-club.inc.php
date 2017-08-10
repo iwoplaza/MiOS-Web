@@ -4,6 +4,7 @@ include_once '../init.php';
 include_once 'dbh.inc.php';
 
 if(!isset($_POST['submit']) || !isset($_POST['club_id'])){
+	header("Location: ../clubs?error=invalid");
     exit();
 }
 
@@ -22,11 +23,13 @@ $result = mysqli_query($dbConn, $sql);
 if(!$row = mysqli_fetch_assoc($result)) {
     /*  The user has no information in the database, which is a a problem.
         Exiting the script */
+	header("Location: ../clubs?error=not-allowed");
     exit();
 }
 
 $user_role = $row['user_role'];
 if(!isset($user_role)) {
+	header("Location: ../clubs?error=not-allowed");
     exit();
 }
 
@@ -40,9 +43,6 @@ if(mysqli_num_rows($result) < 1) {
     header("Location: ../clubs?error=not-allowed");
     exit();
 }
-
-mysqli_query($dbConn, "DELETE FROM clubs WHERE club_id='".$club_id."';");
-mysqli_query($dbConn, "DELETE FROM user_club_relations WHERE user_id='".$_SESSION['user_id']."' AND club_id='".$club_id."'");
 
 $sql = "UPDATE clubs SET club_name='".$club_name."', club_type='".$club_type."', club_desc='".$club_desc."' WHERE club_id='".$club_id."'";
 mysqli_query($dbConn, $sql);
