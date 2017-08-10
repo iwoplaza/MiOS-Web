@@ -6,9 +6,8 @@ else
     $root_path = "/";
 
 if(isset($_POST['submit'])) {
-    session_start();
-    session_unset();
-    session_destroy();
+    include_once '../includes/dbh.inc.php';
+    endSession();
     header("Location: ../");
 }
 

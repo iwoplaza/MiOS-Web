@@ -11,4 +11,17 @@
     define('ECLUBTYPE_INTEREST', 1);
     define('ECLUBTYPE_ACTIVITY', 2);
     define('ECLUBTYPE_LEARNING', 3);
+
+    define('ECLUBROLE_PENDING', 0);
+    define('ECLUBROLE_MEMBER', 1);
+    define('ECLUBROLE_MODERATOR', 2);
+    define('ECLUBROLE_ADMIN', 3);
+    define('ECLUBROLE_BANNED', 4);
+
+    $CLUBTYPE_NAMES = array(
+        0 => 'Sport',
+        1 => 'Zainteresowanie',
+        2 => 'Aktywność',
+        3 => 'Nauczanie'
+    );
 ?>
