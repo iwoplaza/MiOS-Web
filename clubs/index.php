@@ -1,5 +1,5 @@
 <?php $root_path = '../' ?>
-<?php include $root_path.'init.php' ?>
+<?php include $root_path.'includes/init.inc.php' ?>
 <?php
     //If the user isn't logged in, return him HOME.
     if(!isset($_SESSION['user_uid']))
@@ -10,20 +10,12 @@
 <html>
     <head>
         <title>Kółka zainteresowań - MiOS ZSTI</title>
-        <link rel="stylesheet" href="../css/main.css">
+        <?php include '../head.php' ?>
         <link rel="stylesheet" href="../css/clubs.css">
-        <meta charset="utf-8" lang="pl">
     </head>
     <body>
-        <?php
-			include_once $root_path.'header.php';
-		?>
-        
-        <?php
-            if(isset($_SESSION['user_uid'])) {
-                include $root_path.'sidemenu.php';
-            }
-        ?>
+        <?php include '../header.php' ?>
+        <?php include '../burger-menu.php' ?>
         
         <section id="main-container">
             <h1>Kółka zainteresowań</h1>
@@ -69,10 +61,6 @@
             ?>
         </section>
         
-        <?php
-			include_once $root_path.'footer.php';
-		?>
-		
-		<script src="../js/sidebar.js"></script>
+        <?php include $root_path.'footer.php' ?>
     </body>
 </html>

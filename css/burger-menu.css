@@ -1,0 +1,51 @@
+#burger-menu {
+    display: block;
+    height: auto;
+    position: fixed;
+    width: 220px;
+    top: 50px;
+    background-color: #fff;
+    transition: 0.5s all ease-out;
+    
+    background: #afafaf; /* Old browsers */
+    background: -moz-linear-gradient(top, #cfcfcf 0%, #eee 20px);
+    background: -webkit-linear-gradient(top, #cfcfcf 0%,#eee 20px);
+    background: linear-gradient(to bottom, #cfcfcf 0%,#eee 20px);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#afafaf', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+#burger-menu {
+    display: none;
+    transition: 0.5s opacity ease-out;
+}
+
+#burger-menu ul {
+    margin: 15px 20px;
+    padding: 0;
+}
+
+#burger-menu li {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid #aaa;
+}
+
+#burger-menu a {
+    display: block;
+    color: #555;
+    width: 100%;
+    transition: 0.1s background-color ease-in-out;
+    font-size: 0.95em;
+}
+
+#burger-menu a:hover {
+    color: #888;
+    background-color: #fff;
+}

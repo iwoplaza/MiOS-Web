@@ -1,6 +1,6 @@
 <?php
 
-$dbConn = mysqli_connect("192.168.0.103:3306", "reader", "reader", "mios");
+$dbConn = mysqli_connect("localhost:3306", "root", "", "mios");
 mysqli_set_charset($dbConn, 'utf8');
 
 /* check connection */

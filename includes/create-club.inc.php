@@ -1,6 +1,6 @@
 <?php
 
-include_once '../init.php';
+include_once 'init.inc.php';
 include_once 'dbh.inc.php';
 
 if(!isset($_POST['submit'])){

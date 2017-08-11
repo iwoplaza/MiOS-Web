@@ -10,20 +10,12 @@
 <html>
     <head>
         <title>Załóż kółko - MiOS ZSTI</title>
-        <link rel="stylesheet" href="../css/main.css">
+        <?php include '../head.php' ?>
         <link rel="stylesheet" href="../css/clubs.css">
-        <meta charset="utf-8" lang="pl">
     </head>
     <body>
-        <?php
-			include_once $root_path.'header.php';
-		?>
-        
-        <?php
-            if(isset($_SESSION['user_uid'])) {
-                include $root_path.'sidemenu.php';
-            }
-        ?>
+        <?php include '../header.php' ?>
+        <?php include '../sidemenu.php' ?>
         
         <section id="main-container">
             <h1>Załóż kółko</h1>
@@ -41,10 +33,6 @@
             </form>
         </section>
         
-        <?php
-			include_once $root_path.'footer.php';
-		?>
-		
-		<script src="../js/sidebar.js"></script>
+        <?php include '../footer.php' ?>
     </body>
 </html>

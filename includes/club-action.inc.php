@@ -1,6 +1,6 @@
 <?php
 
-include_once '../init.php';
+include_once 'init.inc.php';
 
 //If the action is not specified, exit the script.
 if(!isset($_POST['action'])) {
