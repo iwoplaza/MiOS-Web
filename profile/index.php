@@ -53,7 +53,7 @@
                         $class_number = $row['class_number'];
                         $class_symbol = $row['class_symbol'];
                         $class_name = $row['class_name'];
-                        echo '<li>Klasa '.$class_number.$class_symbol.' - '.$class_name.'</li>';
+                        echo '<li><a href="../class?class_id='.$profile_class.'">Klasa '.$class_number.$class_symbol.' - '.$class_name.'</a></li>';
                     }
                 }
             ?>

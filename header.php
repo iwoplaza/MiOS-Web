@@ -10,7 +10,7 @@
                     </form>';
         }else{
             echo '<div id="burger"><span></span><span></span><span></span></div>';
-            echo '<p>'.$_SESSION['user_first'].' '.$_SESSION['user_last'].'</p>';
+            echo '<p><a href="'.$root_path.'profile?profile_id='.$_SESSION['user_id'].'">'.$_SESSION['user_first'].' '.$_SESSION['user_last'].'</a></p>';
             echo '<nav><ul>
                 <li><a href="'.$root_path.'">STRONA GŁÓWNA</a></li>
                 <li><a href="'.$root_path.'">O NAS</a></li>

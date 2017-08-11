@@ -39,6 +39,7 @@ if($row = mysqli_fetch_assoc($result)) {
         $_SESSION['user_first'] = $row['user_first'];
         $_SESSION['user_last'] = $row['user_last'];
         $_SESSION['user_email'] = $row['user_email'];
+        $_SESSION['class_id'] = $row['class_id'];
         header('Location: '.$root_path."?login=success");
         exit();
     }

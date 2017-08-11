@@ -31,20 +31,23 @@
     color: #555;
 }
 
-.club-entry button[class="join"] {
+.club-entry button{
     position: absolute;
     bottom: 10px;
     left: 10px;
     height: 30px;
     width: 100px;
     margin: 5px 7px;
-    background-color: #595;
     color: #eee;
     font-size: 0.9em;
-    text-shadow: 0px 1px #153;
     border-radius: 5px;
-    border: 1px solid #274;
     transition: 0.05s all linear;
+}
+
+.club-entry button[class="join"] {
+    background-color: #595;
+    text-shadow: 0px 1px #153;
+    border: 1px solid #274;
 }
 
 .club-entry button[class="join"]:hover {
@@ -53,24 +56,37 @@
 }
 
 .club-entry button[class="leave"] {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    height: 30px;
-    width: 100px;
-    margin: 5px 7px;
     background-color: #955;
-    color: #eee;
-    font-size: 0.9em;
     text-shadow: 0px 1px #153;
-    border-radius: 5px;
     border: 1px solid #724;
-    transition: 0.05s all linear;
 }
 
 .club-entry button[class="leave"]:hover {
     background-color: #a77;
     border: 1px solid #a44;
+}
+
+.club-entry #more-info {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    height: 30px;
+    width: 100px;
+    line-height: 30px;
+    margin: 5px 7px;
+    color: #444;
+    font-size: 0.9em;
+    border-radius: 5px;
+    transition: 0.05s all linear;
+    background-color: #fff;
+    border: 1px solid #222;
+    text-align: center;
+}
+
+.club-entry #more-info:hover {
+    background-color: #eee;
+    color: #777;
+    border: 1px solid #444;
 }
 
 #club-toolbar {
