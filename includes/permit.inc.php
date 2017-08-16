@@ -33,11 +33,8 @@ class Permission {
     static function permit($role) {
         $user_role = Permission::fetchRole();
 
-        //If the user's role isn't matching the one provided, exit out to HOME.
-        if($user_role != $role) {
-            header("Location ../?error=not-allowed");
-            exit();
-        }
+        //If the user's role is matching the one provided, return true.
+        return $user_role == $role;
     }
 
     /*
@@ -47,11 +44,8 @@ class Permission {
     static function permitAtLeast($role) {
         $user_role = Permission::fetchRole();
 
-        //If the user's role is lesser than the one provided, exit out to HOME.
-        if($user_role < $role) {
-            header("Location ../?error=not-allowed");
-            exit();
-        }
+        //If the user's role is greater or equal to the one provided, return true.
+        return $user_role >= $role;
     }
     
     /*
@@ -61,10 +55,7 @@ class Permission {
     static function permitNot($role) {
         $user_role = Permission::fetchRole();
 
-        //If the user's role is matching the one provided, exit out to HOME.
-        if($user_role == $role) {
-            header("Location ../?error=not-allowed");
-            exit();
-        }
+        //If the user's role isn't matching the one provided, return true.
+        return $user_role != $role;
     }
 }

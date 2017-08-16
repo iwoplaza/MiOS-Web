@@ -11,7 +11,10 @@
     }
     
     //You can view a class profile if you're at least a student.
-    Permission::permitAtLeast(EROLE_STUDENT);
+    if(!Permission::permitAtLeast(EROLE_STUDENT)) {
+		header("Location: ../");
+		exit();
+	}
     
     if(!isset($_GET['class_id'])) {
         header("Location: ".$root_path);

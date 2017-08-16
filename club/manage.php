@@ -37,7 +37,8 @@
         
         <section id="main-container">
             <h1>Panel zarządzania - <?php echo $club_name ?></h1>
-            <?php echo '<a href="edit-basic.php?club_id='.$club_id.'">' ?>Edytuj podstawowe informacje</a>
+            <?php echo '<a href="edit-basic.php?club_id='.$club_id.'">Edytuj podstawowe informacje</a>' ?>
+            <?php echo '<a href="edit-members.php?club_id='.$club_id.'">Zarządzaj członkami</a>' ?>
         </section>
         
         <?php include '../footer.php' ?>

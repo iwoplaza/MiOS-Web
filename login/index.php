@@ -43,7 +43,6 @@
 			include_once $root_path.'footer.php';
 		?>
 		
-		<script src="../js/jquery-3.2.1.min.js"></script>
 		<script src="../js/bgimage.js"></script>
 	</body>
 </html>

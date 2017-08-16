@@ -27,6 +27,12 @@
         header("Location: not-found.php?profile_id=".$profile_id);
         exit();
     }
+	
+	//If you're not the profile's owner, exit.
+	if($profile_id != $_SESSION['user_id']) {
+		header("Location: ../");
+        exit();
+	}
 
     $profile_first = $row['user_first'];
     $profile_last = $row['user_last'];
@@ -37,7 +43,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?php echo $profile_first.' '.$profile_last ?> - MiOS ZSTI</title>
+        <title>Edytuj profil - MiOS ZSTI</title>
         <?php include '../head.php' ?>
     </head>
     <body>

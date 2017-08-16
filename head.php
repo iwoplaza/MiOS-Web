@@ -1,5 +1,6 @@
 <?php
 echo '<link rel="stylesheet" href="'.$root_path.'css/main.css">';
+echo '<link rel="stylesheet" href="'.$root_path.'css/header.css">';
 echo '<link rel="stylesheet" href="'.$root_path.'css/jumbotron.css">';
 echo '<link rel="stylesheet" href="'.$root_path.'css/burger-menu.css">';
 ?>

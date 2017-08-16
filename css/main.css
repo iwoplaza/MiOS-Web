@@ -54,6 +54,12 @@ h1 {
 	color: #333;
 }
 
+h2 {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #333;
+	font-size: 1.1em;
+}
+
 #main-container {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     background-color: #fff;
@@ -108,18 +114,6 @@ button:hover {
     opacity: 1;
 }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    height: 50px;
-    padding: 5px 20% 0px 20%;
-    background-color: #fff;
-}
-
 .btn-small {
     display: inline-block;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -148,182 +142,40 @@ header {
     transition: 0.05s all ease-out;
 }
 
-header button {
-    float: right;
-    margin: 5px 7px;
-}
-
-header p {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    float: left;
-    margin: 6px 0px 0px 12px;
-    padding-right: 50px;
-    font-size: 1.2em;
-    line-height: 30px;
-    border-right: 1px solid #ccc;
-}
-
-header p a {
-    color: #666;
-}
-
-header p a:hover {
-    color: #444;
-}
-
-header #burger {
-    display: block;
-    float: left;
-    padding: 0px 6px;
-    margin-top: 3px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: 0.1s all ease-out;
-}
-
-header #burger span{
-    position: relative;
-    top: 0px;
-    display: block;
-    width: 27px;
-    height: 2px;
-    margin: 7px auto;
-    background-color: #999;
-    transition: 0.02s all ease-out;
-}
-
-header #burger:hover {
-    border-color: #bbb;
-    cursor: pointer;
-}
-
-header #burger:hover span{
-    background-color: #777;
-}
-
-header nav {
-    display: inline-block;
-    float: left;
-}
-
-header nav ul {
-    margin: 0;
-    padding: 0;
-    height: 40px;
-}
-
-header nav li {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    display: block;
-    list-style: none;
-    float: left;
-    margin-top: 6px;
-    height: 30px;
-    padding: 0px 10px;
-    border-right: 1px solid #ccc;
-}
-
-header nav a {
-    display: block;
-    width: 100%;
-    height: 30px;
-    line-height: 30px;
-    color: #666;
-    transition: 0.01s all ease-out;
-    font-size: 0.95em;
-}
-
-header nav a:hover {
-    color: #999;
-}
-
-header .header-icon {
-    position: relative;
-    float: right;
-    width: 35px;
-    height: 35px;
-    margin: 0 2px;
-    margin-top: 2px;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-}
-
-header .header-icon img {
-    display: block;
-    opacity: 0.3;
-    transform-origin: center;
-    transform: scale(0.9, 0.9);
-    transition: 0.1s transform ease-out;
-}
-
-header .header-icon:hover {
-    border-color: #aaa;
-}
-
-header .header-icon:hover img {
-    opacity: 0.5;
-    transform: scale(1, 1);
-}
-
-header #notifications_toggler img {
-    width: 80%;
-    margin: 10% auto;
-}
-
-header #messages_toggler img {
-    width: 90%;
-    margin: 5% auto;
-}
-
-.dropdown-nibble {
-    display: none;
-    position: absolute;
-    top: 26px;
-    left: -100px;
-}
-
-.dropdown-nibble > div {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    text-align: center;
-    position: relative;
-    left: 5%;
-    display: block;
-    width: 200px;
-    height: auto;
-    padding: 20px 10px;
-    background-color: white;
-    color: #666;
-    z-index: 100;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
-}
-
-.dropdown-nibble span {
-    position: relative;
-    left: 7px;
-    display: block;
-    background-image: url('../img/dropdown-nibble.png');
-    background-size: contain;
-    width: 30px;
-    height: 15px;
-    margin: 0px auto;
-    z-index: 101;
-    background-repeat: no-repeat;
-}
-
 .error-text {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: red;
     font-size: 0.8em;
 }
 
+.user-list {
+	padding: 20px 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	overflow-y: scroll;
+}
+
+.user-list li {
+	list-style: none;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px 10px;
+}
+
+.user-list a {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #666;
+}
+
 footer {
+	display: block;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     box-sizing: border-box;
     position: absolute;
-    width: 100%;
-    left: 0;
+	width: 60%;
     bottom: 0;
-    padding: 5px 20%;
+    padding: 5px 0;
+	margin: 0 20%;
     background-color: #293038;
     color: #666;
     border-top: 1px solid rgba(255, 255, 255, 0.1);

@@ -48,5 +48,5 @@ $hashedPwd = password_hash($input_pwd, PASSWORD_DEFAULT);
 $sql = "INSERT INTO users (user_uid, user_pwd, user_first, user_last, user_email) VALUES ('"
 	.$input_uid."', '".$hashedPwd."', '".$input_first."', '".$input_last."', '".$input_email."')";
 mysqli_query($dbConn, $sql);
-header("Location: ../signup?success");
+header("Location: ../login?success");
 exit();
