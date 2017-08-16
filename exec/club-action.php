@@ -1,6 +1,7 @@
 <?php
 
-include_once 'init.inc.php';
+include_once '../includes/init.inc.php';
+include_once '../includes/dbh.inc.php';
 
 //If the action is not specified, exit the script.
 if(!isset($_POST['action'])) {
@@ -13,7 +14,6 @@ $action = $_POST['action'];
 /*
     Veryfing the session in case the user credentials are falsified.
 */
-include_once 'dbh.inc.php';
 verifySession();
 
 /*

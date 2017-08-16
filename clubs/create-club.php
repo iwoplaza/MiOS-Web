@@ -1,5 +1,5 @@
 <?php $root_path = '../' ?>
-<?php include $root_path.'init.php' ?>
+<?php include $root_path.'includes/init.inc.php' ?>
 <?php
     //If the user isn't logged in, return him HOME.
     if(!isset($_SESSION['user_uid']))
@@ -15,11 +15,11 @@
     </head>
     <body>
         <?php include '../header.php' ?>
-        <?php include '../sidemenu.php' ?>
+        <?php include '../burger-menu.php' ?>
         
         <section id="main-container">
             <h1>Załóż kółko</h1>
-            <form id="create-club" method="post" action="../includes/create-club.inc.php">
+            <form id="create-club" method="post" action="../exec/create-club.php">
                 <input name="club_name" placeholder="Nazwa" required>
                 <select name="club_type" placeholder="Typ" required >
                     <?php

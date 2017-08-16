@@ -1,0 +1,4 @@
+ - You got accepted to SUBJECT.
+ - You were approved as a SUBJECT.
+ - You became administrator of SUBJECT.
+ - SUBJECT2 shared with you/invited you to like/join SUBJECT.

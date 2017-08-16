@@ -1,0 +1,8 @@
+#jumbotron {
+    display: block;
+    margin: 0px 20%;
+    height: 160px;
+    margin-top: 50px;
+    background-image: url('../img/zsti.jpg');
+    background-position: center;
+}

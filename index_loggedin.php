@@ -5,7 +5,7 @@
     <form action="clubs/" method="get">
         <button type="submit">Kółka zainteresowań</button>
     </form>
-    <form action="/includes/logout.inc.php" method="post">
+    <form action="/exec/logout.php" method="post">
         <button type="submit" name="submit">Wyloguj się</button>
         <?php
             echo "<input hidden name='root' value='".$root_path."'>";

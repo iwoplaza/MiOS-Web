@@ -29,7 +29,6 @@
     $class_symbol = $row['class_symbol'];
     $class_name = $row['class_name'];
     $class_educator = $row['class_educator'];
-    echo '<li>Klasa '.$class_number.$class_symbol.' - '.$class_name.'</li>';
 ?>
 
 <!DOCTYPE html>

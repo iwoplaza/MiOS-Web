@@ -34,7 +34,7 @@
                     if($relationRow = mysqli_fetch_assoc($relationResult)) {
                         $relation = $relationRow['relation'];
                         if($relation < ECLUBROLE_ADMIN) {
-                            echo "<form method='post' action='../includes/club-action.inc.php'>
+                            echo "<form method='post' action='../exec/club-action.php'>
                                 <button class='leave' type='submit'>Odejdź</button>
                                 <input hidden name='action' value='leave'>
                                 <input hidden name='club_id' value='".$row['club_id']."'>
@@ -42,20 +42,17 @@
                         }
                         
                         if($relation == ECLUBROLE_MODERATOR || $relation == ECLUBROLE_ADMIN) {
-                            echo "<form method='get' action='manage.php'>
-                                <button type='submit'>Zarządzaj</button>
-                                <input hidden name='club_id' value='".$row['club_id']."'>
-                            </form>";
+                            echo "<a class='btn-small' href='../club/manage.php?club_id=".$row['club_id']."'>Zarządzaj</a>";
                         }
                     }else{
-                        echo "<form method='post' action='../includes/club-action.inc.php'>
+                        echo "<form method='post' action='../exec/club-action.php'>
                             <button class='join' type='submit'>Dołącz</button>
                             <input hidden name='action' value='join'>
                             <input hidden name='club_id' value='".$row['club_id']."'>
                         </form>";
                     }
                     
-                    echo "<a id='more-info' href='../club?club_id=".$row['club_id']."'>Więcej</a>";
+                    echo "<a id='more-info' class='btn-small' href='../club?club_id=".$row['club_id']."'>Więcej</a>";
                     
                     echo '</div>';
                 }

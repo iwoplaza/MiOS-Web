@@ -1,7 +1,7 @@
 <?php
 
-include_once 'init.inc.php';
-include_once 'dbh.inc.php';
+include_once '../includes/init.inc.php';
+include_once '../includes/dbh.inc.php';
 
 if(!isset($_POST['submit'])){
     exit();

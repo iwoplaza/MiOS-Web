@@ -1,22 +1,20 @@
 #burger-menu {
-    display: block;
+    display: none;
     height: auto;
     position: fixed;
     width: 180px;
     top: 50px;
+    left: 20%;
     background-color: #fff;
-    transition: 0.5s all ease-out;
+    transition: 0.5s opacity ease-out;
     
     background: #afafaf; /* Old browsers */
     background: -moz-linear-gradient(top, #cfcfcf 0%, #eee 20px);
     background: -webkit-linear-gradient(top, #cfcfcf 0%,#eee 20px);
     background: linear-gradient(to bottom, #cfcfcf 0%,#eee 20px);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#afafaf', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-}
-
-#burger-menu {
-    display: none;
-    transition: 0.5s opacity ease-out;
+    
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 #burger-menu ul {

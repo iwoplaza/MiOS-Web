@@ -18,7 +18,7 @@
 
 		<div id="login">
 			<h1>Zaloguj się</h1>
-			<form action="../includes/login.inc.php" method="post">
+			<form action="../exec/login.php" method="post">
 				<input id="signin-username" name="username" placeholder="Nazwa użytkownika">
 				<input id="signin-password" name="password" type="password" placeholder="Hasło">
 				<?php 

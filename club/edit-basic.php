@@ -24,7 +24,7 @@
         <?php include '../burger-menu.php' ?>
         
         <section id="main-container">
-            <h1>Panel zarządzania</h1>
+            <h1>Zmień podstawowe informacje</h1>
             <?php 
                 include_once '../includes/dbh.inc.php';
                 $club_id = mysqli_real_escape_string($dbConn, $_GET['club_id']);
@@ -38,7 +38,7 @@
                     header("Location: ../clubs");
                 }
             ?>
-            <form id="create-club" method="post" action="../includes/update-club.inc.php">
+            <form id="create-club" method="post" action="../exec/update-club.php">
                 <?php echo '<input name="club_name" placeholder="Nazwa" required value="'.$club_name.'">'; ?>
                 <select name="club_type" placeholder="Typ" required >
                     <?php
@@ -54,7 +54,7 @@
                 <button type="submit" name="submit">Zatwierdź zmiany</button>
                 <?php echo '<input hidden name="club_id" value="'.$club_id.'">' ?>
             </form>
-            <form method="post" action="../includes/delete-club.inc.php">
+            <form method="post" action="../exec/delete-club.php">
                 <button type="submit" name="submit">Usuń kółko</button>
                 <?php echo "<input hidden name='club_id' value='".$club_id."'>" ?>
             </form>

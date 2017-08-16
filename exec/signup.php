@@ -8,7 +8,7 @@ if(!isset($_POST['submit'])){
 	exit();
 }
 
-include_once 'dbh.inc.php';
+include_once '../includes/dbh.inc.php';
 
 $input_uid = mysqli_real_escape_string($dbConn, $_POST['username']);
 $input_pwd = mysqli_real_escape_string($dbConn, $_POST['password']);
