@@ -37,53 +37,25 @@
 <html>
     <head>
         <title><?php echo $club_name ?> - MiOS ZSTI</title>
-        <?php include '../head.php' ?>
+        <?php include '../elements/head.php' ?>
     </head>
     <body>
-        <?php include '../header.php' ?>
-        <?php include '../burger-menu.php' ?>
+        <?php include '../elements/header.php' ?>
+        <?php include '../elements/burger-menu.php' ?>
         
-        <section id="main-container">
+        <div id="jumbotron">
             <h1><?php echo $club_name ?></h1>
+        </div>
+        <nav id="nav-tree"><ul>
+            <li><a href="/">Pulpit</a></li>
+            <li><a href="/clubs">Kółka zainteresowań</a></li>
+            <li><a href="#"><?php echo $club_name ?></a></li>
+        </ul></nav>
+        <section id="main-container">
             <p><?php echo $club_desc ?></p>
-            <h2>Administratorzy</h2>
-            <ul>
-                <?php
-                    $result = mysqli_query($dbConn, "SELECT * FROM users u INNER JOIN user_club_relations r ON(u.user_id = r.user_id) WHERE club_id='".$club_id."' AND relation='".ECLUBROLE_ADMIN."'");
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo '<li><a href="../profile?profile_id='.$row['user_id'].'">'.$row['user_first'].' '.$row['user_last'].'</a></li>';
-                    }
-                ?>
-            </ul>
-            <h2>Moderatorzy</h2>
-            <ul>
-                <?php
-                    $result = mysqli_query($dbConn, "SELECT * FROM users u INNER JOIN user_club_relations r ON(u.user_id = r.user_id) WHERE club_id='".$club_id."' AND relation='".ECLUBROLE_MODERATOR."'");
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo '<li><a href="../profile?profile_id='.$row['user_id'].'">'.$row['user_first'].' '.$row['user_last'].'</a></li>';
-                    }
-                ?>
-            </ul>
-            <h2>Członkowie</h2>
-            <ul>
-                <?php
-                    $result = mysqli_query($dbConn, "SELECT * FROM users u INNER JOIN user_club_relations r ON(u.user_id = r.user_id) WHERE club_id='".$club_id."' AND relation='".ECLUBROLE_MEMBER."'");
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo '<li><a href="../profile?profile_id='.$row['user_id'].'">'.$row['user_first'].' '.$row['user_last'].'</a></li>';
-                    }
-                ?>
-            </ul>
-            <h2>Oczekujący na przyjęcie</h2>
-            <ul>
-                <?php
-                    $result = mysqli_query($dbConn, "SELECT * FROM users u INNER JOIN user_club_relations r ON(u.user_id = r.user_id) WHERE club_id='".$club_id."' AND relation='".ECLUBROLE_PENDING."'");
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo '<li><a href="../profile?profile_id='.$row['user_id'].'">'.$row['user_first'].' '.$row['user_last'].'</a></li>';
-                    }
-                ?>
-            </ul>
+            <?php echo '<a href="members.php?club_id='.$club_id.'">Członkowie</a>' ?>
         </section>
         
-        <?php include $root_path.'footer.php' ?>
+        <?php include '../elements/footer.php' ?>
     </body>
 </html>

@@ -10,15 +10,22 @@
 <html>
     <head>
         <title>Załóż kółko - MiOS ZSTI</title>
-        <?php include '../head.php' ?>
+        <?php include '../elements/head.php' ?>
         <link rel="stylesheet" href="../css/clubs.css">
     </head>
     <body>
-        <?php include '../header.php' ?>
-        <?php include '../burger-menu.php' ?>
+        <?php include '../elements/header.php' ?>
+        <?php include '../elements/burger-menu.php' ?>
         
-        <section id="main-container">
+        <div id="jumbotron">
             <h1>Załóż kółko</h1>
+        </div>
+        <nav id="nav-tree"><ul>
+            <li><a href="/">Pulpit</a></li>
+            <li><a href="/clubs">Kółka zainteresowań</a></li>
+            <li><a href="#">Załóż kółko</a></li>
+        </ul></nav>
+        <section id="main-container">
             <form id="create-club" method="post" action="../exec/create-club.php">
                 <input name="club_name" placeholder="Nazwa" required>
                 <select name="club_type" placeholder="Typ" required >
@@ -33,6 +40,6 @@
             </form>
         </section>
         
-        <?php include '../footer.php' ?>
+        <?php include '../elements/footer.php' ?>
     </body>
 </html>

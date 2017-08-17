@@ -38,15 +38,32 @@
 <html>
     <head>
         <title><?php echo $profile_first.' '.$profile_last ?> - MiOS ZSTI</title>
-        <?php include '../head.php' ?>
+        <?php include '../elements/head.php' ?>
     </head>
     <body>
-        <?php include '../header.php' ?>
-        <?php include '../burger-menu.php' ?>
+        <?php include '../elements/header.php' ?>
+        <?php include '../elements/burger-menu.php' ?>
         
+        <div id="jumbotron">
+            <h1><?php echo $profile_first.' '.$profile_last ?></h1>
+        </div>
+        <nav id="nav-tree"><ul>
+            <li><a href="/">Pulpit</a></li>
+            <li><a href="#"><?php echo $profile_first.' '.$profile_last ?></a></li>
+        </ul></nav>
         <section id="main-container">
+            <div class="profile-icon">
+                <?php
+                    echo '<img src="'.$root_path.ProfileUtils::getProfilePictureURL($profile_id).'"></img>';
+                    //If the user's the profile's owner, let him change the profile picture.
+                    if($profile_id == $_SESSION['user_id']) {
+                        echo '<div class="profile-icon-detail"><a href="change-picture.php?profile_id='.$profile_id.'">Zmień obrazek</a></div>';
+                    }
+                ?>
+            </div>
             <h1><?php echo $profile_first.' '.$profile_last ?></h1>
             <?php
+                
                 if(!empty($profile_email)) {
                     echo "<li>Email: ".$profile_email."</li>";
                 }
@@ -60,8 +77,11 @@
                     }
                 }
             ?>
+            <p>
+            <?php echo '<a href="edit.php?profile_id='.$profile_id.'">Edytuj profil</a>' ?>
+            </p>
         </section>
         
-        <?php include $root_path.'footer.php' ?>
+        <?php include '../elements/footer.php' ?>
     </body>
 </html>

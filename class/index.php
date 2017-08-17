@@ -38,12 +38,20 @@
 <html>
     <head>
         <title><?php echo 'Klasa '.$class_number.$class_symbol; ?> - MiOS ZSTI</title>
-        <?php include '../head.php' ?>
+        <?php include '../elements/head.php' ?>
     </head>
     <body>
-        <?php include '../header.php' ?>
-        <?php include '../burger-menu.php' ?>
+        <?php include '../elements/header.php' ?>
+        <?php include '../elements/burger-menu.php' ?>
         
+        <div id="jumbotron">
+            <h1><?php echo 'Klasa '.$class_number.$class_symbol ?></h1>
+        </div>
+        <nav id="nav-tree"><ul>
+            <li><a href="/">Pulpit</a></li>
+            <li><a href="/classes">Klasy</a></li>
+            <li><a href="#"><?php echo 'Klasa '.$class_number.$class_symbol ?></a></li>
+        </ul></nav>
         <section id="main-container">
             <h1><?php echo 'Klasa '.$class_number.$class_symbol ?></h1>
             <h2>Uczniowie</h2>
@@ -69,6 +77,6 @@
             </p>
         </section>
         
-        <?php include $root_path.'footer.php' ?>
+        <?php include '../elements/footer.php' ?>
     </body>
 </html>

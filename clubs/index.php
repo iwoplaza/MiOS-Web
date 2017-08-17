@@ -1,6 +1,8 @@
 <?php $root_path = '../' ?>
-<?php include $root_path.'includes/init.inc.php' ?>
 <?php
+    include_once $root_path.'includes/init.inc.php';
+    include_once $root_path.'includes/dbh.inc.php';
+    include_once $root_path.'includes/permit.inc.php';
     //If the user isn't logged in, return him HOME.
     if(!isset($_SESSION['user_uid']))
         header("Location: ".$root_path);
@@ -10,17 +12,23 @@
 <html>
     <head>
         <title>Kółka zainteresowań - MiOS ZSTI</title>
-        <?php include '../head.php' ?>
+        <?php include '../elements/head.php' ?>
         <link rel="stylesheet" href="../css/clubs.css">
     </head>
     <body>
-        <?php include '../header.php' ?>
-        <?php include '../burger-menu.php' ?>
+        <?php include '../elements/header.php' ?>
+        <?php include '../elements/burger-menu.php' ?>
         
-        <section id="main-container">
+        <div id="jumbotron">
             <h1>Kółka zainteresowań</h1>
+        </div>
+        <nav id="nav-tree"><ul>
+            <li><a href="/">Pulpit</a></li>
+            <li><a href="#">Kółka zainteresowań</a></li>
+        </ul></nav>
+        <section id="main-container">
             <?php
-                include_once $root_path.'includes/dbh.inc.php';
+                
                 include 'toolbar.php';
             
                 $sql = "SELECT * FROM clubs";
@@ -30,9 +38,8 @@
                 while($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='club-entry'><h2>".$row['club_name']."<h3>".$CLUBTYPE_NAMES[$row['club_type']]."</h3></h2><p>".$row['club_desc']."</p>";
                     $sql = "SELECT * FROM user_club_relations WHERE user_id='".$_SESSION['user_id']."' AND club_id='".$row['club_id']."'";
-                    $relationResult = mysqli_query($dbConn, $sql);
-                    if($relationRow = mysqli_fetch_assoc($relationResult)) {
-                        $relation = $relationRow['relation'];
+                    $relation = Permission::fetchClubRole($row['club_id']);
+                    if($relation != Permission::$NOT_FOUND) {
                         if($relation < ECLUBROLE_ADMIN) {
                             echo "<form method='post' action='../exec/club-action.php'>
                                 <button class='leave' type='submit'>Odejdź</button>
@@ -59,6 +66,6 @@
             ?>
         </section>
         
-        <?php include $root_path.'footer.php' ?>
+        <?php include $root_path.'elements/footer.php' ?>
     </body>
 </html>

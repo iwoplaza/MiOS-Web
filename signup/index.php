@@ -10,7 +10,7 @@
 <html>
     <head>
         <title>Zarejestruj się - MiOS ZSTI</title>
-        <?php include '../head.php' ?>
+        <?php include '../elements/head.php' ?>
         <link rel="stylesheet" href="../css/signup.css">
     </head>
     <body>
@@ -40,7 +40,7 @@
 		</div>
 
 		<?php
-			include_once $root_path.'footer.php';
+			include_once '../elements/footer.php';
 		?>
 		
 		<script src="../js/bgimage.js"></script>

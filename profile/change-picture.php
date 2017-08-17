@@ -27,13 +27,13 @@
         header("Location: not-found.php?profile_id=".$profile_id);
         exit();
     }
-	
-	//If you're not the profile's owner, exit.
+    
+    //If you're not the profile's owner, exit.
 	if($profile_id != $_SESSION['user_id']) {
 		header("Location: ../");
         exit();
 	}
-
+    
     $profile_first = $row['user_first'];
     $profile_last = $row['user_last'];
     $profile_email = $row['user_email'];
@@ -43,7 +43,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Edytuj profil - MiOS ZSTI</title>
+        <title><?php echo $profile_first.' '.$profile_last ?> - MiOS ZSTI</title>
         <?php include '../elements/head.php' ?>
     </head>
     <body>
@@ -55,25 +55,15 @@
         </div>
         <nav id="nav-tree"><ul>
             <li><a href="/">Pulpit</a></li>
-            <li><?php echo '<a href="/profile?profile_id='.$profile_id.'">'.$profile_first.' '.$profile_last.'</a>' ?></li>
-            <li><a href="#">Edytuj profil</a></li>
+            <li><a href="#"><?php echo $profile_first.' '.$profile_last ?></a></li>
         </ul></nav>
         <section id="main-container">
             <h1><?php echo $profile_first.' '.$profile_last ?></h1>
-            <?php
-                if(!empty($profile_email)) {
-                    echo "<li>Email: ".$profile_email."</li>";
-                }
-                if(!empty($profile_class)) {
-                    $result = mysqli_query($dbConn, "SELECT * FROM classes WHERE class_id='".$profile_class."'");
-                    if($row = mysqli_fetch_assoc($result)) {
-                        $class_number = $row['class_number'];
-                        $class_symbol = $row['class_symbol'];
-                        $class_name = $row['class_name'];
-                        echo '<li><a href="../class?class_id='.$profile_class.'">Klasa '.$class_number.$class_symbol.' - '.$class_name.'</a></li>';
-                    }
-                }
-            ?>
+            <form action="../exec/change-profile-picture.php" method="POST" enctype="multipart/form-data">
+                <input required type="file" name="profile-picture">
+                <button type="submit" name="submit">UPLOAD</button>
+                <?php echo '<input hidden name="profile_id" value="'.$profile_id.'">' ?>
+            </form>
         </section>
         
         <?php include '../elements/footer.php' ?>

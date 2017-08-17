@@ -5,20 +5,27 @@
 <html>
     <head>
         <title>Profil nie znaleziony - MiOS ZSTI</title>
-        <?php include '../head.php' ?>
+        <?php include '../elements/head.php' ?>
         <link rel="stylesheet" href="../css/clubs.css">
     </head>
     <body>
-        <?php include '../header.php' ?>
-        <?php include '../burger-menu.php' ?>
+        <?php include '../elements/header.php' ?>
+        <?php include '../elements/burger-menu.php' ?>
         
-        <section id="main-container">
+        <div id="jumbotron">
             <h1>Nie znaleziono klubu</h1>
+        </div>
+        <nav id="nav-tree"><ul>
+            <li><a href="/">Pulpit</a></li>
+            <li><a href="/clubs">Kółka zainteresowań</a></li>
+            <li><a href="#">Nie znaleziono</a></li>
+        </ul></nav>
+        <section id="main-container">
             <p>
                 Klub który próbujesz wyświetlić nie istnieje. Jeżeli jesteś pewien że dany klub powinien tu być, skontaktuj się z administratorami strony.
             </p>
         </section>
         
-        <?php include $root_path.'footer.php' ?>
+        <?php include '../elements/footer.php' ?>
     </body>
 </html>

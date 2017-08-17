@@ -5,11 +5,11 @@
 <html>
 <head>
     <title>MiOS ZSTI - Modernizacja i Organizacja Społeczeństwa ZSTI</title>
-    <?php include 'head.php' ?>
+    <?php include 'elements/head.php' ?>
 </head>
 <body>
-    <?php include 'header.php' ?>
-    <?php include 'burger-menu.php' ?>
+    <?php include 'elements/header.php' ?>
+    <?php include 'elements/burger-menu.php' ?>
     
     <?php
         if(isset($_SESSION['user_uid'])) {
@@ -19,6 +19,6 @@
         }
     ?>
 
-    <?php include 'footer.php' ?>
+    <?php include 'elements/footer.php' ?>
 </body>
 </html>

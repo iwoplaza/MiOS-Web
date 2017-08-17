@@ -1,6 +1,9 @@
 <?php $root_path = '../' ?>
-<?php include $root_path.'includes/init.inc.php' ?>
 <?php
+    include $root_path.'includes/init.inc.php';
+    include_once '../includes/dbh.inc.php';
+    include_once '../includes/permit.inc.php';
+    
     //If the user isn't logged in, return him HOME.
     if(!isset($_SESSION['user_uid']))
         header("Location: ".$root_path);
@@ -10,7 +13,7 @@
         header("Location: ../clubs");
     }
 
-	include_once '../includes/dbh.inc.php';
+	
 	$club_id = mysqli_real_escape_string($dbConn, $_GET['club_id']);
 	$sql = "SELECT * FROM clubs WHERE club_id='".$club_id."'";
 	$result = mysqli_query($dbConn, $sql);
@@ -23,7 +26,24 @@
 	}
 
 	function createUserListElement($user_id, $user_name) {
-		echo '<li><a href="../profile?profile_id='.$user_id.'">'.$user_name.'</a></li>';
+        global $root_path;
+        global $club_id;
+        
+		echo '<li><a href="../profile?profile_id='.$user_id.'">';
+        echo '<p>'.$user_name.'</p>';
+        echo '<div class="profile-icon"><img src="'.$root_path.ProfileUtils::getProfilePictureURL($user_id).'"></img></div>';
+        echo '</a>';
+        //If you are the administrator/moderator of the club
+        $relation = Permission::fetchClubRole($club_id);
+        if(Permission::clubPermitAtLeast($club_id, ECLUBROLE_MODERATOR)) {
+            echo '<form action="../exec/club-action.php" method="POST">
+                <button class="btn-small" type="submit" name="submit">Remove</button>
+                <input hidden name="action" value="remove">
+                <input hidden name="club_id" value="'.$club_id.'">
+                <input hidden name="user_id" value="'.$user_id.'">
+            </form>';
+        }
+        echo '</li>';
 	}
 ?>
 
@@ -31,14 +51,23 @@
 <html>
     <head>
         <title>Zarządzaj kółkiem - MiOS ZSTI</title>
-        <?php include '../head.php' ?>
+        <?php include '../elements/head.php' ?>
         <link rel="stylesheet" href="../css/clubs.css">
         
     </head>
     <body>
-        <?php include '../header.php' ?>
-        <?php include '../burger-menu.php' ?>
+        <?php include '../elements/header.php' ?>
+        <?php include '../elements/burger-menu.php' ?>
         
+        <div id="jumbotron">
+            <h1><?php echo $club_name ?></h1>
+        </div>
+        <nav id="nav-tree"><ul>
+            <li><a href="/">Pulpit</a></li>
+            <li><a href="/clubs">Kółka zainteresowań</a></li>
+            <li><?php echo '<a href="/club?club_id='.$club_id.'">'.$club_name.'</a>' ?></li>
+            <li><a href="#">Członkowie</a></li>
+        </ul></nav>
         <section id="main-container">
             <h1>Członkowie</h1>
             <h2>Administratorzy</h2>
@@ -79,6 +108,6 @@
             </ul>
         </section>
         
-        <?php include '../footer.php' ?>
+        <?php include '../elements/footer.php' ?>
     </body>
 </html>

@@ -21,7 +21,7 @@ verifySession();
 */
 if($action == 'join') {
     if(isset($_POST['club_id'])) {
-        $club_id = $_POST['club_id'];
+        $club_id = mysqli_real_escape_string($dbConn, $_POST['club_id']);
         $sql = "SELECT user_role FROM users WHERE user_id='".$_SESSION['user_id']."'";
         $result = mysqli_query($dbConn, $sql);
         echo '\n';
@@ -73,12 +73,29 @@ else if($action == 'leave') {
         header("Location: ../?club-error=unknown-action");
         exit();
     }
-    $club_id = $_POST['club_id'];
-    $sql = "DELETE FROM user_club_relations WHERE user_id=".$_SESSION['user_id']." AND club_id=".$club_id." AND relation<>".ECLUBROLE_BANNED."";
+    $club_id = mysqli_real_escape_string($dbConn, $_POST['club_id']);
+    $sql = "DELETE FROM user_club_relations WHERE user_id=".$_SESSION['user_id']." AND club_id=".$club_id." AND relation<>".ECLUBROLE_BANNED." AND relation<>".ECLUBROLE_ADMIN;
     mysqli_query($dbConn, $sql);
     
     echo 'Leaving...'.$sql;
     header("Location: ../clubs");
+    exit();
+}
+/*
+    Is the action 'REMOVE' then? Alright, let's try and seperate the user from the club.
+*/
+else if($action == 'remove') {
+    if(!isset($_POST['club_id']) || !isset($_POST['user_id'])) {
+        header("Location: ../?club-error=unknown-action");
+        exit();
+    }
+    $club_id = mysqli_real_escape_string($dbConn, $_POST['club_id']);
+    $user_id = mysqli_real_escape_string($dbConn, $_POST['user_id']);
+    $sql = "DELETE FROM user_club_relations WHERE user_id=".$user_id." AND club_id=".$club_id." AND relation<>".ECLUBROLE_BANNED." AND relation<>".ECLUBROLE_ADMIN;
+    mysqli_query($dbConn, $sql);
+    
+    echo 'Removing user...'.$sql;
+    header("Location: ../club/members.php?club_id=".$club_id);
     exit();
 }
 else{

@@ -27,20 +27,27 @@
 <html>
     <head>
         <title>Zarządzaj kółkiem - MiOS ZSTI</title>
-        <?php include '../head.php' ?>
+        <?php include '../elements/head.php' ?>
         <link rel="stylesheet" href="../css/clubs.css">
-        
     </head>
     <body>
-        <?php include '../header.php' ?>
-        <?php include '../burger-menu.php' ?>
+        <?php include '../elements/header.php' ?>
+        <?php include '../elements/burger-menu.php' ?>
         
+        <div id="jumbotron">
+            <h1><?php echo $club_name ?></h1>
+        </div>
+        <nav id="nav-tree"><ul>
+            <li><a href="/">Pulpit</a></li>
+            <li><a href="/clubs">Kółka zainteresowań</a></li>
+            <li><a href="#">Panel zarządzania</a></li>
+        </ul></nav>
         <section id="main-container">
-            <h1>Panel zarządzania - <?php echo $club_name ?></h1>
+            <h1>Panel zarządzania</h1>
             <?php echo '<a href="edit-basic.php?club_id='.$club_id.'">Edytuj podstawowe informacje</a>' ?>
-            <?php echo '<a href="edit-members.php?club_id='.$club_id.'">Zarządzaj członkami</a>' ?>
+            <?php echo '<a href="members.php?club_id='.$club_id.'">Zarządzaj członkami</a>' ?>
         </section>
         
-        <?php include '../footer.php' ?>
+        <?php include '../elements/footer.php' ?>
     </body>
 </html>
