@@ -36,6 +36,7 @@
     bottom: 10px;
     left: 10px;
     height: 30px;
+    line-height: 30px;
     width: 100px;
     margin: 5px 7px;
     color: #eee;
@@ -75,6 +76,15 @@
     line-height: 30px;
     margin: 5px 7px;
     transition: 0.05s all linear;
+}
+
+.club-entry .waiting {
+    position: relative;
+    bottom: 8px;
+    display: block;
+    float: left;
+    margin-left: 105px;
+    color: #777;
 }
 
 #club-toolbar {

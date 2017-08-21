@@ -46,6 +46,10 @@
                                 <input hidden name='action' value='leave'>
                                 <input hidden name='club_id' value='".$row['club_id']."'>
                             </form>";
+                            
+                            if($relation == ECLUBROLE_PENDING) {
+                                echo '<p class="waiting">Oczekiwanie na zatwierdzenie...</p>';
+                            }
                         }
                         
                         if($relation == ECLUBROLE_MODERATOR || $relation == ECLUBROLE_ADMIN) {

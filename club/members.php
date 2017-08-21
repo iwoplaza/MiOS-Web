@@ -25,7 +25,7 @@
 		header("Location: ../clubs");
 	}
 
-	function createUserListElement($user_id, $user_name) {
+	function createUserListElement($user_id, $user_name, $club_role) {
         global $root_path;
         global $club_id;
         
@@ -36,12 +36,22 @@
         //If you are the administrator/moderator of the club
         $relation = Permission::fetchClubRole($club_id);
         if(Permission::clubPermitAtLeast($club_id, ECLUBROLE_MODERATOR)) {
-            echo '<form action="../exec/club-action.php" method="POST">
-                <button class="btn-small" type="submit" name="submit">Remove</button>
-                <input hidden name="action" value="remove">
-                <input hidden name="club_id" value="'.$club_id.'">
-                <input hidden name="user_id" value="'.$user_id.'">
-            </form>';
+            if($club_role != ECLUBROLE_ADMIN) {
+                echo '<form action="../exec/club-action.php" method="POST">
+                    <button class="btn-small" type="submit" name="submit">Remove</button>
+                    <input hidden name="action" value="remove">
+                    <input hidden name="club_id" value="'.$club_id.'">
+                    <input hidden name="user_id" value="'.$user_id.'">
+                </form>';
+            }
+            if($club_role == ECLUBROLE_PENDING) {
+                echo '<form action="../exec/club-action.php" method="POST">
+                    <button class="btn-small" type="submit" name="submit">Accept</button>
+                    <input hidden name="action" value="accept">
+                    <input hidden name="club_id" value="'.$club_id.'">
+                    <input hidden name="user_id" value="'.$user_id.'">
+                </form>';
+            }
         }
         echo '</li>';
 	}
@@ -75,7 +85,7 @@
                 <?php
                     $result = mysqli_query($dbConn, "SELECT * FROM users u INNER JOIN user_club_relations r ON(u.user_id = r.user_id) WHERE club_id='".$club_id."' AND relation='".ECLUBROLE_ADMIN."'");
                     while($row = mysqli_fetch_assoc($result)) {
-                        createUserListElement($row['user_id'], $row['user_first'].' '.$row['user_last']);
+                        createUserListElement($row['user_id'], $row['user_first'].' '.$row['user_last'], ECLUBROLE_ADMIN);
                     }
                 ?>
             </ul>
@@ -84,7 +94,7 @@
                 <?php
                     $result = mysqli_query($dbConn, "SELECT * FROM users u INNER JOIN user_club_relations r ON(u.user_id = r.user_id) WHERE club_id='".$club_id."' AND relation='".ECLUBROLE_MODERATOR."'");
                     while($row = mysqli_fetch_assoc($result)) {
-                        createUserListElement($row['user_id'], $row['user_first'].' '.$row['user_last']);
+                        createUserListElement($row['user_id'], $row['user_first'].' '.$row['user_last'], ECLUBROLE_MODERATOR);
                     }
                 ?>
             </ul>
@@ -93,7 +103,7 @@
                 <?php
                     $result = mysqli_query($dbConn, "SELECT * FROM users u INNER JOIN user_club_relations r ON(u.user_id = r.user_id) WHERE club_id='".$club_id."' AND relation='".ECLUBROLE_MEMBER."'");
                     while($row = mysqli_fetch_assoc($result)) {
-                        createUserListElement($row['user_id'], $row['user_first'].' '.$row['user_last']);
+                        createUserListElement($row['user_id'], $row['user_first'].' '.$row['user_last'], ECLUBROLE_MEMBER);
                     }
                 ?>
             </ul>
@@ -102,7 +112,7 @@
                 <?php
                     $result = mysqli_query($dbConn, "SELECT * FROM users u INNER JOIN user_club_relations r ON(u.user_id = r.user_id) WHERE club_id='".$club_id."' AND relation='".ECLUBROLE_PENDING."'");
                     while($row = mysqli_fetch_assoc($result)) {
-                        createUserListElement($row['user_id'], $row['user_first'].' '.$row['user_last']);
+                        createUserListElement($row['user_id'], $row['user_first'].' '.$row['user_last'], ECLUBROLE_PENDING);
                     }
                 ?>
             </ul>

@@ -82,6 +82,23 @@ else if($action == 'leave') {
     exit();
 }
 /*
+    Is the action 'ACCEPT' then? Alright, let's try to accept the user into the club.
+*/
+else if($action == 'accept') {
+    if(!isset($_POST['club_id']) || !isset($_POST['user_id'])) {
+        header("Location: ../?club-error=unknown-action");
+        exit();
+    }
+    $club_id = mysqli_real_escape_string($dbConn, $_POST['club_id']);
+    $user_id = mysqli_real_escape_string($dbConn, $_POST['user_id']);
+    $sql = "UPDATE user_club_relations SET relation='".ECLUBROLE_MEMBER."' WHERE user_id='".$user_id."' AND club_id='".$club_id."'";
+    mysqli_query($dbConn, $sql);
+    
+    echo 'Accepting...'.$sql;
+    header("Location: ../club/members.php?club_id=".$club_id);
+    exit();
+}
+/*
     Is the action 'REMOVE' then? Alright, let's try and seperate the user from the club.
 */
 else if($action == 'remove') {

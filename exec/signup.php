@@ -21,10 +21,10 @@ Checking if by any chance the fields are empty.
 If they are, return to the SignUp page with an error,
 and exit the script.
 */
-/*if(empty($input_uid) || empty($input_pwd) || empty($input_first) || empty($input_last) || empty($input_email)) {
+if(empty($input_uid) || empty($input_pwd) || empty($input_first) || empty($input_last) || empty($input_email)) {
 	header("Location: ../signup?error=empty");
 	exit();
-}*/
+}
 
 /*
 Checking if the email is valid.

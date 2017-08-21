@@ -77,9 +77,11 @@
                     }
                 }
             ?>
-            <p>
-            <?php echo '<a href="edit.php?profile_id='.$profile_id.'">Edytuj profil</a>' ?>
-            </p>
+            <?php
+                if($profile_id == $_SESSION['user_id']) {
+                    echo '<p><a href="edit.php?profile_id='.$profile_id.'">Edytuj profil</a></p>';
+                }
+            ?>
         </section>
         
         <?php include '../elements/footer.php' ?>
