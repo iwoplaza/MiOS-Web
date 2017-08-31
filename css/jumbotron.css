@@ -1,6 +1,6 @@
 #jumbotron {
     display: block;
-    margin: 0px 20%;
+    margin: 0 0;
     height: 160px;
     margin-top: 50px;
     background-image: url('../img/zsti.jpg');
@@ -13,4 +13,18 @@
     padding-top: 60px;
     font-size: 2.5em;
     text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+@media only screen and (max-width: 450px) {
+    #jumbotron h1 {
+        padding-top: 65px;
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    #jumbotron {
+        margin: 0px 20%;
+        margin-top: 50px;
+    }
 }

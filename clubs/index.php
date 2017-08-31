@@ -38,6 +38,7 @@
                 while($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='club-entry'><h2>".$row['club_name']."<h3>".$CLUBTYPE_NAMES[$row['club_type']]."</h3></h2><p>".$row['club_desc']."</p>";
                     $sql = "SELECT * FROM user_club_relations WHERE user_id='".$_SESSION['user_id']."' AND club_id='".$row['club_id']."'";
+                    echo '<div class="actions">';
                     $relation = Permission::fetchClubRole($row['club_id']);
                     if($relation != Permission::$NOT_FOUND) {
                         if($relation < ECLUBROLE_ADMIN) {
@@ -64,8 +65,7 @@
                     }
                     
                     echo "<a id='more-info' class='btn-small' href='../club?club_id=".$row['club_id']."'>Więcej</a>";
-                    
-                    echo '</div>';
+                    echo '</div></div>';
                 }
             ?>
         </section>

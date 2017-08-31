@@ -4,7 +4,7 @@
     position: fixed;
     width: 180px;
     top: 50px;
-    left: 20%;
+    left: 0;
     background-color: #fff;
     transition: 0.5s opacity ease-out;
     
@@ -46,4 +46,10 @@
 #burger-menu a:hover {
     color: #888;
     background-color: #fff;
+}
+
+@media only screen and (min-width: 700px) {
+    #burger-menu {
+        left: 20%;
+    }
 }
